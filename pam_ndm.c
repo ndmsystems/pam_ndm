@@ -100,6 +100,7 @@ pam_sm_authenticate(pam_handle_t *pamh, int flags,
 			pam_err = PAM_AUTH_ERR;
 		}
 	}
+	ndm_core_close(&core);
 #ifndef OPENPAM
 	free(password);
 #endif
