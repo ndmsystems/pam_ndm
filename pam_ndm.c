@@ -18,7 +18,7 @@ static char password_prompt[] = "Password:";
 #endif
 
 #ifndef __TARGET_REALM__
-# define __TARGET_REALM__           "Undefined realm"
+# define __TARGET_REALM__           ""
 #endif
 
 PAM_EXTERN int
