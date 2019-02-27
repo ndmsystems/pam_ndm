@@ -17,10 +17,6 @@ static char password_prompt[] = "Password:";
 #define PAM_EXTERN
 #endif
 
-#ifndef __TARGET_REALM__
-# define __TARGET_REALM__           ""
-#endif
-
 PAM_EXTERN int
 pam_sm_authenticate(pam_handle_t *pamh, int flags,
 	int argc, const char *argv[])
@@ -92,7 +88,7 @@ pam_sm_authenticate(pam_handle_t *pamh, int flags,
         pam_err = PAM_AUTH_ERR;
 	} else {
         if (ndm_core_authenticate(core, user, password,
-                __TARGET_REALM__, "opt", &authenticated) &&
+                "opt", &authenticated) &&
 			authenticated) {
 			pam_err = PAM_SUCCESS;
         }
