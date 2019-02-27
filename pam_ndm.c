@@ -28,7 +28,7 @@ pam_sm_authenticate(pam_handle_t *pamh, int flags,
 	struct pam_response *resp;
 #endif
 	const char *user;
-	char *password;
+	char *password = NULL;
 	int pam_err, retry;
 
     struct ndm_core_t *core;
